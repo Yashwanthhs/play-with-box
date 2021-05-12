@@ -1,17 +1,27 @@
 <div>
-    <!-- <div class="fence">
-        <div *ngFor="let box of boxArray;">
-            <div class="boxes">
-                <input type="checkbox" [id]="box" [value]="box">
-                <label> {{box}}</label>
-            </div>
+    <div class="info">
+        <h1 style="text-align: center;">Play With Box</h1>
+        <h2>How To Play:</h2>
+        <ul>
+            <li>Click on Add button to create new Box</li>
+            <li>Tick the checkbox to select the box for actions</li>
+            <li>On Delete selected boxes will be distoyed</li>
+            <li>Use arrow or A(Left), W(Up), S(Down), D(Right) keys
+                to move selected boxes around the screen
+            </li>
+        </ul>
+        <h2>Boxes Created: {{boxCount}}</h2>
+        <h2 style="color: red;">Boxes Distroyed: {{deletedBox}}</h2>
+        <h2 style="color: green;">Boxes Alive: {{boxCount - deletedBox}}</h2>
+    </div>
+    <div style="margin-left: 8px;">
+        <button class="actions" (click)="addBox()">Add</button>
+        <button class="actions" style="margin-left: 8px;" (click)="deleteBox()">Delete</button>
+    </div>
+    <div *ngFor="let box of getBoxes().controls;" formGroup="boxForm" class="boxes">
+        <div [id]="'box_' + (box.value.id)" class="box">
+            <input type="checkbox" (click)="handleCheckBoxEvent(box.value.id)">
+            <label> {{box.value.id}}</label>
         </div>
-    </div> -->
-    <!-- <div #fence class="fence">
-    </div> -->
-    <div #box class="boxes"></div>
-    <div class="actions">
-        <button (click)="addBox()">Add</button>
-        <button (click)="deleteBox()">Delete</button>
     </div>
 </div>

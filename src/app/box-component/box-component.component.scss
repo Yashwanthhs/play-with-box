@@ -1,5 +1,5 @@
-.boxes{
-    background-color: aquamarine;
+.box{
+    background-color: rgb(83, 201, 248);
     position: absolute;
     width: 6rem;
     height: 6rem;
@@ -11,15 +11,21 @@
     font-weight: 600;
 }
 
-.fence{
-    margin: auto;
-    width: 60rem;
-    height: 60rem;
-    border: 3px solid green;
-    padding: 10px;
+.boxes{
+    margin: 8px;
+}
+
+.info{
+    border: aquamarine 4px;
+    border-style: double;
+    padding: 16px;
+    margin: 8px;
+    display: inline-block;
 }
 
 .actions{
-    position: absolute;
-    right: 0;
+    width: 96px;
+    height: 48px;
+    font-size: large;
+    font-weight: 600;
 }
