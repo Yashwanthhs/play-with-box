@@ -1,0 +1,25 @@
+.boxes{
+    background-color: aquamarine;
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.fence{
+    margin: auto;
+    width: 60rem;
+    height: 60rem;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.actions{
+    position: absolute;
+    right: 0;
+}

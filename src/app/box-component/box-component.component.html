@@ -1,0 +1,17 @@
+<div>
+    <!-- <div class="fence">
+        <div *ngFor="let box of boxArray;">
+            <div class="boxes">
+                <input type="checkbox" [id]="box" [value]="box">
+                <label> {{box}}</label>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div #fence class="fence">
+    </div> -->
+    <div #box class="boxes"></div>
+    <div class="actions">
+        <button (click)="addBox()">Add</button>
+        <button (click)="deleteBox()">Delete</button>
+    </div>
+</div>
