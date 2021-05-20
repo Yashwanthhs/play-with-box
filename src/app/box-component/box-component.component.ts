@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,8 @@ import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
   }
 })
 
-export class BoxComponentComponent implements OnInit, AfterViewInit {
+export class BoxComponentComponent implements OnInit {
+
   private readonly _addBoxFormBuilder = new FormBuilder();
   boxForm: FormGroup = this._addBoxFormBuilder.group({
     boxArray: this._addBoxFormBuilder.array([])
@@ -21,11 +22,7 @@ export class BoxComponentComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit(): void {
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addBox(){
     const boxgroup = {
@@ -115,13 +112,25 @@ export class BoxComponentComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private getNewLocation(currentLocation: number, add:boolean){
+  private getNewLocation(currentLocation: number, add:boolean){   
     let newLoc;
     if(add){
-      newLoc = String(currentLocation+=5) + "px";
+      if(currentLocation<400){
+        newLoc = String(currentLocation+=5) + "px";
+      }
+      else{
+        newLoc = String(currentLocation) + "px";
+      }
+      
     }
     else{
-      newLoc = String(currentLocation-=5) + "px";
+      if(currentLocation>0){
+        newLoc = String(currentLocation-=5) + "px";
+      }
+      else{
+        newLoc = String(currentLocation) + "px";
+      }
+      
     }
     return newLoc;
   }

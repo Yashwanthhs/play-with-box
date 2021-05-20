@@ -1,18 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.outer{
+    margin: 8px;
+    border: aquamarine 4px;
+    border-style: double;
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
 .box{
     background-color: rgb(83, 201, 248);
     position: absolute;
-    width: 6rem;
-    height: 6rem;
+    width: 100px;
+    height: 100px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     font-size: x-large;
     font-weight: 600;
-}
-
-.boxes{
-    margin: 8px;
 }
 
 .info{
@@ -24,8 +34,8 @@
 }
 
 .actions{
-    width: 96px;
-    height: 48px;
-    font-size: large;
-    font-weight: 600;
+    width: 64px;
+    height: 24px;
+    font-size: medium;
+    font-weight: 500;
 }

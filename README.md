@@ -1,7 +1,7 @@
 # PlayWithBox
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
-![alt text](../play-with-box/src/assets/images/Screenshot%202021-05-12%20235639.png)
+![Sample Img](../play-with-box/src/assets/images/Screenshot%202021-05-12%20235639.png)
 
 ## Development server
 
