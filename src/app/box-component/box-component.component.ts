@@ -81,58 +81,36 @@ export class BoxComponentComponent implements OnInit {
   private updateLocationForSelectedBox(moveDir: any){
     const boxes = this.getBoxes().controls;
     const selectedBoxes = boxes.filter(box => box.value.isSelected === true);
+    const moveBy = 8;
+    const outerBoxWidth = document.querySelector<HTMLElement>(".outer")?.offsetWidth;
+    const boxWidth = document.querySelector<HTMLElement>(".box")?.offsetWidth;
+    const MaxWidth = Number(outerBoxWidth) - Number(boxWidth);
+    const outerBoxHeight = document.querySelector<HTMLElement>(".outer")?.offsetHeight;
+    const boxHeight = document.querySelector<HTMLElement>(".box")?.offsetHeight;
+    const MaxHeight = Number(outerBoxHeight) - Number(boxHeight);
     selectedBoxes.forEach(element => {
       const id = element.value.id;
       const eleDoc = document.getElementById('box_' + (id));
       if(eleDoc){
         switch(moveDir){
           case "up":
-            console.log("UP");
-            const newUpLoc = this.getNewLocation(Number(eleDoc.style.top.replace(/\D/g, "")), false);
-            eleDoc.style.top = newUpLoc;
+            let currentUp = Number(eleDoc.style.top.replace(/\D/g, ""));
+            eleDoc.style.top = currentUp > 0 ? String(currentUp-=moveBy) + "px": String(currentUp) + "px";
             break;
           case "down":
-            console.log("DOWN");
-            const newDownLoc = this.getNewLocation(Number(eleDoc.style.top.replace(/\D/g, "")), true);
-            eleDoc.style.top = newDownLoc;
+            let currentDown = Number(eleDoc.style.top.replace(/\D/g, ""));
+            eleDoc.style.top = currentDown < (MaxHeight-moveBy) ? String(currentDown+=moveBy) + "px" : String(currentDown) + "px";;
             break;
           case "left":
-            console.log("LEFT");
-            const newLeftLoc = this.getNewLocation(Number(eleDoc.style.left.replace(/\D/g, "")), false);
-            eleDoc.style.left = newLeftLoc;
+            let currentLeft = Number(eleDoc.style.left.replace(/\D/g, ""))
+            eleDoc.style.left = currentLeft > 0 ? String(currentLeft-=moveBy) + "px" : String(currentLeft) + "px";
             break;
           case "right":
-            console.log("RIGHT");
-            const newRightLoc = this.getNewLocation(Number(eleDoc.style.left.replace(/\D/g, "")), true);
-            eleDoc.style.left = newRightLoc;
+            let currentRight = Number(eleDoc.style.left.replace(/\D/g, ""))
+            eleDoc.style.left = currentRight < (MaxWidth-moveBy) ? String(currentRight+=moveBy) + "px" : String(currentRight) + "px";
             break;
         }
       }
-      console.log(eleDoc);
     });
   }
-
-  private getNewLocation(currentLocation: number, add:boolean){   
-    let newLoc;
-    if(add){
-      if(currentLocation<400){
-        newLoc = String(currentLocation+=5) + "px";
-      }
-      else{
-        newLoc = String(currentLocation) + "px";
-      }
-      
-    }
-    else{
-      if(currentLocation>0){
-        newLoc = String(currentLocation-=5) + "px";
-      }
-      else{
-        newLoc = String(currentLocation) + "px";
-      }
-      
-    }
-    return newLoc;
-  }
-
 }
